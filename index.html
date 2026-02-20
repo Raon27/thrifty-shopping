@@ -1,16 +1,198 @@
+
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Thrifty Shopping Guide | Smart Shopping Portfolio</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <link rel="stylesheet" href="style.css">
-  </head>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알뜰장보기 가이드 | Smart Shopping Portfolio</title>
+  <meta name="description" content="aT(한국농수산식품유통공사) 물가정보를 기반으로 한 스마트 소비 플랫폼">
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
 <body>
-      <header class="app-header">
-                <div class="container nav-content">
-                              <a href="#" class="
-</body></title>
-  </head>
+  <div class="app-wrapper">
+    <!-- Navigation -->
+    <header class="app-header">
+      <div class="container">
+        <div class="nav-content">
+          <a href="#" class="logo">
+            <i class="fas fa-carrot animate-bounce"></i>
+            <span>알뜰장보기 가이드</span>
+          </a>
+          <nav class="desktop-nav">
+            <ul>
+              <li><a href="#dashboard" class="active">대시보드</a></li>
+              <li><a href="#comparison">가격비교</a></li>
+              <li><a href="#market-map">우리동네 시장</a></li>
+              <li><a href="#fresh-tips">신선 팁</a></li>
+            </ul>
+          </nav>
+          <div class="nav-actions">
+            <button class="btn-icon"><i class="fas fa-search"></i></button>
+            <button class="btn-primary">로그인</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-content animate-fade-in">
+            <span class="badge">Today's Market Status</span>
+            <h1>현명한 소비의 시작,<br><span class="highlight">실시간 장보기 가이드</span></h1>
+            <p>aT(한국농수산식품유통공사) 공공 데이터를 활용하여<br>전국 주요 시장과 마트의 물가를 한눈에 분석해 드립니다.</p>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-label">조회된 품목</span>
+                <span class="stat-value">1,240+</span>
+              </div>
+              <div class="divider"></div>
+              <div class="stat-item">
+                <span class="stat-label">참여 시장</span>
+                <span class="stat-value">150+</span>
+              </div>
+              <div class="divider"></div>
+              <div class="stat-item">
+                <span class="stat-label">정확도</span>
+                <span class="stat-value">99.8%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dashboard Grid -->
+      <section id="dashboard" class="dashboard-section container">
+        <div class="section-header">
+          <h2><i class="fas fa-chart-pie"></i> 한주간의 물가 트렌드</h2>
+          <p>가장 많이 찾는 핵심 품목들의 가격 변동을 확인하세요.</p>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Left Column: Price Chart -->
+          <div class="card chart-card animate-slide-up">
+            <div class="card-header">
+              <h3>주요 품목 가격 추이</h3>
+              <div class="chart-legend">
+                <span class="legend-item"><i class="fas fa-circle color-primary"></i> 전통시장</span>
+                <span class="legend-item"><i class="fas fa-circle color-secondary"></i> 대형마트</span>
+              </div>
+            </div>
+            <div class="chart-body">
+              <canvas id="priceChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Right Column: Quick Stats -->
+          <div class="stats-column">
+            <div class="card mini-card animate-slide-up" style="animation-delay: 0.1s;">
+              <div class="mini-icon price-down"><i class="fas fa-arrow-trend-down"></i></div>
+              <div class="mini-info">
+                <span class="label">최대 하락 품목</span>
+                <span class="value">배추 (1포기)</span>
+                <span class="change negative">-18.4%</span>
+              </div>
+            </div>
+            <div class="card mini-card animate-slide-up" style="animation-delay: 0.2s;">
+              <div class="mini-icon price-up"><i class="fas fa-arrow-trend-up"></i></div>
+              <div class="mini-info">
+                <span class="label">최대 상승 품목</span>
+                <span class="value">사과 (부사, 10개)</span>
+                <span class="change positive">+12.2%</span>
+              </div>
+            </div>
+            <div class="card mini-card animate-slide-up" style="animation-delay: 0.3s;">
+              <div class="mini-icon best-deal"><i class="fas fa-trophy"></i></div>
+              <div class="mini-info">
+                <span class="label">오늘의 추천 품목</span>
+                <span class="value">시금치 (1단)</span>
+                <span class="badge-fresh">신선도 최고</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Section -->
+      <section id="comparison" class="comparison-section container">
+        <div class="card comparison-card animate-fade-in">
+          <div class="card-header">
+            <h2><i class="fas fa-balance-scale"></i> 우리동네 물가 비교</h2>
+            <button class="btn-text">전체보기 <i class="fas fa-chevron-right"></i></button>
+          </div>
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>품목명</th>
+                  <th>전통시장 평균</th>
+                  <th>대형마트 평균</th>
+                  <th>최저가 확인</th>
+                </tr>
+              </thead>
+              <tbody id="comparisonList">
+                <!-- Dynamically populated by app.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fresh Tips -->
+      <section id="fresh-tips" class="tips-section container">
+        <div class="tips-grid">
+          <div class="tip-banner animate-fade-in">
+            <div class="tip-text">
+              <h3>🥬 시금치, 어떻게 골라야 할까요?</h3>
+              <p>줄기가 굵지 않고 잎이 평평하며 윤기가 흐르는 것이 좋습니다. 뿌리 부분이 짙은 분홍색인 것이 달고 맛있어요.</p>
+              <a href="#" class="btn-outline">더 많은 팁 보기</a>
+            </div>
+            <div class="tip-image">
+              <!-- Image will be visible if styled correctly or using generate_image later -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo"><i class="fas fa-carrot"></i> 알뜰장보기</div>
+            <p>대한민국 물가 정보를 가장 빠르게 전달합니다.</p>
+          </div>
+          <div class="footer-links">
+            <div class="link-group">
+              <h4>데이터 출처</h4>
+              <ul>
+                <li><a href="https://kadx.co.kr" target="_blank">KADX 농식품 빅데이터 거래소</a></li>
+                <li><a href="https://www.at.or.kr" target="_blank">aT 한국농수산식품유통공사</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Thrifty Shopping Guide. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
+Pressing 
